@@ -34,13 +34,13 @@ export default function Reports() {
         <div className="chart">
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={monthly}>
-              <CartesianGrid strokeDasharray="3 3" vertical={false} />
-              <XAxis dataKey="label" />
-              <YAxis />
-              <Tooltip formatter={money} />
+              <CartesianGrid stroke="var(--line)" strokeDasharray="3 3" vertical={false} />
+              <XAxis dataKey="label" tick={{ fill: 'var(--muted)' }} />
+              <YAxis tick={{ fill: 'var(--muted)' }} />
+              <Tooltip formatter={money} contentStyle={{ background: 'var(--surface)', borderColor: 'var(--line)', color: 'var(--ink)', borderRadius: 12 }} />
               <Legend />
-              <Bar dataKey="income" name="Income" fill="#15803d" radius={[4, 4, 0, 0]} />
-              <Bar dataKey="expense" name="Expenses" fill="#c2410c" radius={[4, 4, 0, 0]} />
+              <Bar dataKey="income" name="Income" fill="var(--income)" radius={[4, 4, 0, 0]} />
+              <Bar dataKey="expense" name="Expenses" fill="var(--expense)" radius={[4, 4, 0, 0]} />
             </BarChart>
           </ResponsiveContainer>
         </div>
@@ -55,7 +55,7 @@ export default function Reports() {
                 <Pie data={categories} dataKey="value" nameKey="name" innerRadius={55} outerRadius={95}>
                   {categories.map((c, i) => <Cell key={c.name} fill={COLORS[i % COLORS.length]} />)}
                 </Pie>
-                <Tooltip formatter={money} />
+                <Tooltip formatter={money} contentStyle={{ background: 'var(--surface)', borderColor: 'var(--line)', color: 'var(--ink)', borderRadius: 12 }} />
                 <Legend />
               </PieChart>
             </ResponsiveContainer>
@@ -67,11 +67,11 @@ export default function Reports() {
           <div className="chart">
             <ResponsiveContainer width="100%" height="100%">
               <LineChart data={monthly}>
-                <CartesianGrid strokeDasharray="3 3" vertical={false} />
-                <XAxis dataKey="label" />
-                <YAxis />
-                <Tooltip formatter={money} />
-                <Line type="monotone" dataKey="cumulative" name="Balance" stroke="#0f766e" strokeWidth={3} />
+                <CartesianGrid stroke="var(--line)" strokeDasharray="3 3" vertical={false} />
+                <XAxis dataKey="label" tick={{ fill: 'var(--muted)' }} />
+                <YAxis tick={{ fill: 'var(--muted)' }} />
+                <Tooltip formatter={money} contentStyle={{ background: 'var(--surface)', borderColor: 'var(--line)', color: 'var(--ink)', borderRadius: 12 }} />
+                <Line type="monotone" dataKey="cumulative" name="Balance" stroke="var(--primary)" strokeWidth={3} />
               </LineChart>
             </ResponsiveContainer>
           </div>

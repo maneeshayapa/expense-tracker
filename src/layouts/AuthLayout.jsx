@@ -1,6 +1,7 @@
 import { Navigate, Outlet } from 'react-router-dom'
 import { useAuth } from '../hooks/useAuth.jsx'
 import Loader from '../components/Loader.jsx'
+import ThemeToggle from '../components/ThemeToggle.jsx'
 
 // Centered card layout for the Login and Register pages.
 export default function AuthLayout() {
@@ -15,7 +16,10 @@ export default function AuthLayout() {
   return (
     <div className="auth-page">
       <div className="auth-card">
-        <div className="brand">Ledgerly</div>
+        <div className="auth-card-head">
+          <div className="brand"><span className="brand-mark">L</span>Ledgerly</div>
+          <ThemeToggle />
+        </div>
         <Outlet />
       </div>
     </div>

@@ -25,7 +25,7 @@ export default function Profile() {
         subtitle="Your account details."
       />
 
-      <div className="card narrow">
+      <div className="card profile-card narrow">
         <div className="avatar">
           {displayName.charAt(0).toUpperCase()}
         </div>

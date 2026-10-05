@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { NavLink, Outlet, useLocation } from 'react-router-dom'
 import { useAuth } from '../hooks/useAuth.jsx'
+import ThemeToggle from '../components/ThemeToggle.jsx'
 
 const links = [
   { to: '/', label: 'Dashboard' },
@@ -38,6 +39,7 @@ export default function AppLayout() {
           Menu
         </button>
         <span className="brand">Ledgerly</span>
+        <ThemeToggle />
       </header>
 
       {menuOpen && (
@@ -49,7 +51,10 @@ export default function AppLayout() {
       )}
 
       <aside className={`sidebar ${menuOpen ? 'open' : ''}`}>
-        <div className="brand">Ledgerly</div>
+        <div className="sidebar-brand-row">
+          <div className="brand"><span className="brand-mark">L</span>Ledgerly</div>
+          <ThemeToggle />
+        </div>
         <nav>
           {links.map((link) => (
             <NavLink
